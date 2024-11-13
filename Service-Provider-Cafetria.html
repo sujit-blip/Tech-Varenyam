@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetria Information Form</title>
+    <link rel="stylesheet" href="Service-Provider-Hotel.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+           <a href="Service-Provider-Enter.html">back</a>         
+        </nav> 
+    </header>
+    <div class="form-container">
+        <h2>Cafetria Information Form</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="owner-name">Owner Name:</label>
+            <input type="text" id="owner-name" name="owner-name" required>
+
+            <label for="hotel-name">Cafetria Name:</label>
+            <input type="text" id="hotel-name" name="hotel-name" required>
+
+            <label for="opening-time">Opening Time:</label>
+            <input type="time" id="opening-time" name="opening-time" required>
+
+            <label for="closing-time">Closing Time:</label>
+            <input type="time" id="closing-time" name="closing-time" required>
+
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" name="phone-number" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="description">Description of Hotel:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="photos">Upload Photos (Max 3):</label>
+            <input type="file" id="photos" name="photos" accept="image/*" multiple required>
+            <small>Only select up to 3 images</small>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding:  0;
+    margin: 0;
+    background-color: #121312;
+}
+
+header .logo{
+    font-size: 2.0rem;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-right: 5%;
+}
+
+header .logo span{
+    color:#f7f200;
+    text-decoration: none;
+
+}
+
+header .navbar a{
+    color: #fff;
+    font-size: 2rem;
+    margin:0  1.8rem;
+    text-decoration: none;
+}
+
+header .navbar a:hover{
+    color: #f7f200;
+    font-size:2.1rem;
+}
+
+header{
+    position: fixed;
+    top:0;
+    left:0;
+    background: #333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1.2rem;
+    width: 100%;
+}
+
+.video-background{
+    position:fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    z-index:-1;
+}
+#bg-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.button1
+{
+  background:linear-gradient(#02ffea,#1403ff) ;
+  border: none;
+  margin-top: 2%;
+  top:auto;
+  left:100%;
+  right: 100%;
+  padding: 20px 100px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 1rem;
+  width: 50%;
+}
+.button2
+{
+  background:linear-gradient(#e20000,#ff5303) ;
+  border: none;
+  margin-top: 2%;
+  top:auto;
+  left:100%;
+  right: 100%;
+  padding: 20px 100px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 1rem;
+  width: 50%;
+}
+
+.button3
+{
+  background:linear-gradient(#e2cb00,#ff5303) ;
+  border: none;
+  margin-top: 2%;
+  top:auto;
+  left:100%;
+  right: 100%;
+  padding: 20px 100px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 1rem;
+  width: 50%;
+  
+}
+
+.button4
+{
+  background:linear-gradient(#51ff00,#135f00) ;
+  border: none;
+  margin-top: 2%;
+  top:auto;
+  left:100%;
+  right: 100%;
+  padding: 20px 100px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 1rem;
+  width: 50%;
+  
+
+}
+
+.Categorys
+{    
+    margin-top: 10%;
+    margin-left: 30%;
+     
+}
+
+h1
+{
+    margin-left: 1%;
+  color: #fff;
+  font-size: 60px;
+}
+
+label{
+    color: bisque;
+}
+
+a{
+    text-decoration: none;
+}
