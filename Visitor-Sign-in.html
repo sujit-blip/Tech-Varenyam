@@ -14,25 +14,27 @@
     </header>
     <div class="wrapper">
         <h1>Sign-in</h1>
-        <form action="#">
-            <input type="text" class="textbox" placeholder="E-mail">
+        <form action="Visitor-Sign-in.php" method="post" >
+            <input type="email" class="textbox" placeholder="E-mail" name="email" required>
             <br>
-            <input type="text" class="textbox" placeholder="Username">
+            <input type="text" class="textbox" placeholder="Username" name="name" required>
             <br>
-            <input type="password" class="textbox" placeholder="Password">
-        </form>
+            <input type="password" class="textbox" placeholder="Password" name="pass" required>
+        
         <div class="terms">
             <input type="checkbox" id="checkbox">
             <label for="checkbox">I Agree to these
                 <a href="#">Terms & Conditions</a>
             </label>
         </div>
-        <button>Sign-in</button>
+        <button >Sign-in</button>
         <div class="member">
-            Already a member?<a href="#">
+            Already a member?<a href="Visitor-Login.html">
                 Login Here
             </a>
+        </form>
         </div>
     </div>
+    
 </body>
 </html>
