@@ -15,15 +15,15 @@
 	<div class="wrapper">
 	<div class="form-box login">
 		<h2>Login</h2>
-		<form action="#">
+		<form action="Visitor-Login.php" method="post">
 			<div class="input-box">
 				<span class="icon"><ion-icon name="person"></ion-icon></span>
-				<input type="text" required>
+				<input type="text" name="name" required>
 				<label>UserName</label>
 			</div>
 		<div class="input-box">
 			<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-			<input type="password" required>
+			<input type="password" name="pass" required>
 			<label>Password</label>
 		</div>
 		<div class="pass-forgot">
@@ -31,7 +31,7 @@
 		</div>
 		<button type="submit" class="btn">Login</button>
 		<div class="login-register">
-			<p>Create new account?<a href="#" class="register-link">Sign_in</a></p>
+			<p>Create new account?<a href="Visitor-Sign-in.html" class="register-link">Sign_in</a></p>
 		</div>
 		</form>
 	</div>
