@@ -1,65 +1,748 @@
 <!DOCTYPE html>
-< lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourism</title>
-    <link rel="stylesheet" href="styleMain.css">
+    <title>Explore the World | Tourism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+         
+        a{
+            text-decoration: none;
+            color: #ababab;
+
+        }
+        /* Previous styles remain the same */
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('/api/placeholder/1920/1080') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            opacity: 0;
+            font-family: sans-serif;
+            animation-fill-mode: forwards;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: fadeInUp 1s ease 0.4s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background-color: #c0392b;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            width: 100%;
+            height: 110vh;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .destinations h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #fff8f8;
+        }
+        .sliderbody{
+  background: #646363ab;
+  width: 100%;
+  height: 90vh;
+  border-radius: 20px;
+
+}
+
+.container{
+    position: absolute;
+    top: 145%;
+    left:35%;
+    transform: translate(-50%,-50%);
+    width: 1000px;
+    height: 500px;
+    background: #cfcbcb;
+    box-shadow: 0 30px 50px #dbdbdb;
+}
+
+.container .slide .item{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    border-radius: 20px;
+    box-shadow: 0 10px 10px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.slide .item:nth-child(1), .slide .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide .item:nth-child(3){
+    left: 50%;
+}
+
+.slide .item:nth-child(4){
+    left: calc(50% + 220px);
+}
+
+.slide .item:nth-child(5){
+    left: calc(50% + 440px);
+}
+
+.slide .item:nth-child(n + 6){
+    left: calc(50% + 660px);
+}
+
+.item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+
+
+}
+
+.slide .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .name{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+
+
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+
+}
+
+.content button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+@keyframes animate{
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.button{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+
+}
+
+.button button{
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 1px solid #0000;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ababab;
+    color: #fff;
+}
+
+.text{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+        
+
+        /* New Footer Styles */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+            transform: translateY(-3px);
+        }
+
+        .video-background{
+           position:fixed;
+           top: 0%;
+           left: 0%;
+           width: 100%;
+           height: 100%;
+           overflow:hidden;
+           z-index:-1; 
+         }
+#bg-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+         @media (max-width: 768px){
+            .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 20px 41px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: none;
+            
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .destination-grid {
+                padding: 0 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .video-background{
+                position:fixed;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 100%;
+                overflow:hidden;
+                z-index:-1;
+            }
+
+            #bg-video{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }  
+            .sliderbody{
+  background: #646363ab;
+  width: 100%;
+  height: 81vh;
+  border-radius: 20px;
+
+}
+
+.container{
+    position: absolute;
+    top: 139%;
+    left: 46%;
+    transform: translate(-50%,-50%);
+    width: 95%;
+    height: 75%;
+    background: #cfcbcb;
+    box-shadow: 0 30px 50px #dbdbdb;
+    border-radius: 20px;
+
+}
+
+.container .slide .item{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    border-radius: 20px;
+    box-shadow: 0 10px 10px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.slide .item:nth-child(1), .slide .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide .item:nth-child(3){
+    left: 15%;
+    width: 10%;
+    top: 77%;
+    height: 10%;
+}
+
+.slide .item:nth-child(4){
+    left: calc(50% + -15%);
+    width: 10%;
+    top: 77%;
+    height: 10%;
+}
+
+.slide .item:nth-child(5){
+    left: calc(50% + 6%);
+    width: 10%;
+    top: 77%;
+    height: 10%;
+}
+
+.slide .item:nth-child(n + 6){
+    left: calc(50% + 27%);
+    width: 10%;
+    top: 77%;
+    height: 10%;
+}
+
+.item .content{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+
+
+}
+
+.slide .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .name{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+
+
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+
+}
+
+.content button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+@keyframes animate{
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.button{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+
+}
+
+.button button{
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 1px solid #0000;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ababab;
+    color: #fff;
+}
+
+.text{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}  
+        }
+    </style>
 </head>
 <body>
-   
-   <!-- Navbar Started-->
-   <header>
-       <a href="#" class="logo"><span>M</span>aharashtra <span>T</span>ravel </a>
-       
-       <nav class="navbar">
-          <a href="index.html">Home</a>
-          <a href="Service-Provider.html">Service-Provider</a>
-          <a href="#">Contact</a>
-          <a href="#">Help</a> 
-          <a href="#">About us</a>         
-       </nav> 
-   </header>
-   <!--Navber Ended-->
-
-    <!--MainBackground Started-->
-   <div class="video-background">
-     <video autoplay muted loop id="bg-video">
-        <source src="Mainbg.mp4" type="video/mp4">
-     </video>
-   </div>  
-
-   <section class="home" id="home">
-    <div class="content">
-        <h3>Maharashtra Tourism</h3>
-         <p>Let's Discover the hidden Culture of Maharashtra
-            <br><h3>As a Visitor</h3>
-         </p>
-         <a href="Visitor-Sign-in.html" class="btn">Sign-in</a>
-         <a href="Visitor-Login.html" class="btn">Login</a>
-         <br>
-         <a href="#image-set" class="btn"> Scroll Down to Explore</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Travel Maharashtra</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Bussiness.html">Bussiness</a>
+            <a href="#">Login</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <!--Video Section-->
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video">
+           <source src="Mainbg.mp4" type="video/mp4">
+        </video>
     </div>
-   </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Maharashtra Tourism</h1>
+            <p>Discover Amazing Places and Create Unforgettable Memories in Maharashtra</p>
+            <button class="cta-button"><a href="Visitor-Sign-in.html">Start Your Journey</a></button>
+        </div>
+    </section>
+</section>
 
-   <!--MainBackground Ended-->
-   
-   <div class="image-set">
-      <img src="CuisineBg.jpg" alt="Image 1">
-      <img src="CultureBg.jpg" alt="Image 2">
-      <br>
-      <img src="HeritageBg.jpg" alt="Image 3">
-      <img src="HospitalityBg.jpg" alt="Image 4">
-  </div>
-   
+<!-- Popular Destinations Section -->
+    <div class="sliderbody">
+        <div class="container">
+       
+           <div class="slide">
+       
+               <div class="item" style="background-image: url(1.jpg);">
+                   <div class="content">
+                       <div class="name">Pune</div>
+                       <div class="des">XYZ</div>
+                   </div>
+                     
+               </div>
+       
+               <div class="item" style="background-image: url(2.jpg);">
+                   <div class="content">
+                       <div class="name">Pune</div>
+                       <div class="des">XYZ</div>
+                   </div>
+                     
+               </div>
+       
+               <div class="item" style="background-image: url(3.jpg);">
+                   <div class="content">
+                       <div class="name">Pune</div>
+                       <div class="des">XYZ</div>
+                   </div>
+                     
+               </div>
+       
+               <div class="item" style="background-image: url(4.jpg);">
+                   <div class="content">
+                       <div class="name">Pune</div>
+                       <div class="des">XYZ</div>
+                   </div>
+                     
+               </div>
+       
+               <div class="item" style="background-image: url(5.jpg);">
+                   <div class="content">
+                       <div class="name">Pune</div>
+                       <div class="des">XYZ</div>
+                   </div>
+                     
+               </div>
+       
+               <div class="item" style="background-image: url(6.jpg);">
+                   <div class="content">
+                       <div class="name">Pune</div>
+                       <div class="des">XYZ</div>
+                   </div>
+                     
+               </div>
+       
+           </div>
+       
+           <div class="button">
+               <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+               <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+           </div>
+       
+        </div>
+       </div>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About TravelWorld</h3>
+            <p>We are dedicated to providing unforgettable travel experiences and helping you discover the world's most amazing destinations.</p>
+            
+        </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#">Bussiness</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>Email: info@travelworld.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+            <p>Address: 123 Travel Street, Adventure City, AC 12345</p>
+        </div>
+        
+       <div class="footer-section">
+            <h3>Follow us</h3>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Twitter">t</a>
+                <a href="#" aria-label="Instagram">i</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 TravelWorld. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    let next=document.querySelector('.next')
+let prev= document.querySelector('.prev')
+
+next.addEventListener('click', function(){
+let item = document.querySelectorAll('.item')
+document.querySelector('.slide').appendChild(item[0])
+})
+
+prev.addEventListener('click', function(){
+let item = document.querySelectorAll('.item')
+document.querySelector('.slide').prepend(item[item.length - 1])
+})
+</script>
+
 </body>
-</html> 
-
-
-
-
-
-
-
-
-
+</html>

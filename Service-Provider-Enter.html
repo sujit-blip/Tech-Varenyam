@@ -3,26 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service-Provider-Enter</title>
-    <link rel="stylesheet" href="Service-Provider-Enter.css">
+    <title>Maharashtra Tourism - Service Provider Entry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav {
+            background:#a4a4a5;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            height: 89vh;
+            object-fit: cover;
+            padding: 2rem;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+
+        }
+
+        .slide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .item {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .item:nth-child(1)::before {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-image: url('Hotel.jpg');
+            filter: brightness(0.7);
+        }
+
+        .item:nth-child(2)::before {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-image: url('Cafe.jpg');
+            filter: brightness(0.7);
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .des {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .content a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+             
+            background: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .content a:hover {
+            background: #030303;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .item {
+                height: 300px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .des {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="Service-Provider-Login.html">Home</a>         
-         </nav> 
-        <a href="#" class="logo"><span>M</span>aharashtra <span>T</span>ravel </a>
-    </header>
-    <div class="video-background">
-        <video autoplay muted loop id="bg-video">
-           <source src="Mainbg.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="Categorys"> 
-        <h1>Type of Business</h1>
-        <button type="button" class="button1"><a href="Service-Provider-Hotel.html"><label>Hotel</label></a></button>
-        <button type="button" class="button2"><a href="Service-Provider-Cafetria.html"><label>Cafetrias</label></a></button>
-    </div>
+    <nav>
+        <a href="Bussiness.html">Home</a>
+        <div class="logo">Maharashtra Tourism</div>
+    </nav>
 
+    <div class="container">
+        <div class="slide">
+            <div class="item">
+                <div class="content">
+                    <div class="name">Hotel</div>
+                    <div class="des">Fill the Information about your Hotel</div>
+                    <a href="Service-Provider-Solapur-Hotel.html">Hotel Form</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="content">
+                    <div class="name">Cafe</div>
+                    <div class="des">Fill the Information about your Cafe</div>
+                    <a href="Service-Provider-Solapur-Cafetria.html">Cafe Form</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

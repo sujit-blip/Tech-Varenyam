@@ -3,38 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-in</title>
-    <link rel="stylesheet" href="styleSign-in.css">
+    <title>Modern Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+
+        body {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            min-height: 90vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 2.0rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            transition: 0.3s ease;
+            pointer-events: none;
+        }
+
+        input:focus + label,
+        input:valid + label {
+            top: -10px;
+            left: 5px;
+            font-size: 0.8rem;
+            color: #FF6B6B;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: 0.3s ease;
+            background: transparent;
+        }
+
+        input:focus {
+            border-color: #FF6B6B;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .social-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
-<body class="background">    
-    <header>
-        <nav class="navbar">
-           <a href="index.html">back</a>     
-        </nav> 
-    </header>
-    <div class="wrapper">
-        <h1>Sign-in</h1>
-        <form action="Visitor-Sign-in.php" method="post" >
-            <input type="email" class="textbox" placeholder="E-mail" name="email" required>
-            <br>
-            <input type="text" class="textbox" placeholder="Username" name="name" required>
-            <br>
-            <input type="password" class="textbox" placeholder="Password" name="pass" required>
-        
-        <div class="terms">
-            <input type="checkbox" id="checkbox">
-            <label for="checkbox">I Agree to these
-                <a href="#">Terms & Conditions</a>
-            </label>
-        </div>
-        <button >Sign-in</button>
-        <div class="member">
-            Already a member?<a href="Visitor-Login.html">
-                Login Here
-            </a>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Let's Started Journey</h1>
+        <form>
+            <div class="form-group">
+                <input type="text" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+                <input type="text" id="username" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Sign In</button>
         </form>
+        <div class="social-login">
+            <p>Already have Account?</p>
+            <div class="social-icons">
+                <div class="social-icon"><a href="Visitor-Login.html">Login</a></div>
+            </div>
         </div>
     </div>
-    
 </body>
 </html>
