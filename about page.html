@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharashtra Tourism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #006699;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-in-out 1s;
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease-out;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .cities {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .city {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+            animation-duration: 1.5s;
+        }
+
+        .city h3 {
+            font-size: 1.8rem;
+            color: #006699;
+            margin-bottom: 10px;
+        }
+
+        .city:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cityFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+            80% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .points-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .points-list li {
+            font-size: 1.1rem;
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .points-list li:before {
+            content: "•";
+            color: #006699;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            top: 2px;
+        }
+
+        /* Unique city animations */
+        #pune {
+            animation: slideLeft 1.5s ease-out;
+        }
+
+        #solapur {
+            animation: zoomIn 1.5s ease-out;
+        }
+
+        #kolhapur {
+            animation: cityFadeIn 1.5s ease-out;
+        }
+
+        #satara {
+            animation: bounceIn 1.5s ease-out;
+        }
+
+        #ratnagiri {
+            animation: slideUp 1.5s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Maharashtra Tourism</h1>
+            <p>Explore the heart of India!</p>
+        </div>
+    </header>
+
+    <section class="about">
+        <h2>About Maharashtra</h2>
+        <p>Maharashtra is a state in the western region of India, rich in culture, history, and natural beauty. Known for its historical landmarks, beautiful beaches, hill stations, and vibrant festivals, it offers a diverse travel experience for tourists.</p>
+    </section>
+
+    <section class="cities">
+        
+        
+        <div class="city" id="pune">
+            <h3>Pune</h3>
+            <p>Pune is known for its cultural heritage, educational institutions, and vibrant nightlife. It's a hub for technology and commerce and a great mix of modernity and tradition.</p>
+            <ul class="points-list">
+                <li>Home to prestigious educational institutions like FTII and Pune University.</li>
+                <li>Historical sites like Shaniwar Wada and Aga Khan Palace.</li>
+                <li>A gateway to hill stations like Lonavala and Khandala.</li>
+                <li>Famous for its street food, including Misal Pav and Bhakarwadi.</li>
+                <li>Popular for its vibrant nightlife with numerous cafes, clubs, and music festivals.</li>
+            </ul>
+        </div>
+        
+        <div class="city" id="solapur">
+            <h3>Solapur</h3>
+            <p>Solapur is known for its temples, ancient forts, and the famous Solapur chaddar (cloth). The city is an important cultural and industrial hub.</p>
+            <ul class="points-list">
+                <li>Famous for its handloom industry and Solapur chaddars.</li>
+                <li>The Siddheshwar Temple, a major pilgrimage site.</li>
+                <li>Rich history with sites like Bhuikot Fort and Solapur Fort.</li>
+                <li>Important textile industry town with power looms.</li>
+                <li>Home to the beautiful Pandharpur Temple, near Solapur, one of the holiest places for devotees of Lord Vithoba.</li>
+            </ul>
+        </div>
+        
+        <div class="city" id="kolhapur">
+            <h3>Kolhapur</h3>
+            <p>Kolhapur is known for its rich history, beautiful temples, and delicious cuisine. The city is also famous for its Kolhapuri chappals and vibrant local culture.</p>
+            <ul class="points-list">
+                <li>Famous for the Mahalakshmi Temple, a major religious site.</li>
+                <li>Known for Kolhapuri chappals, a unique handmade footwear.</li>
+                <li>Famous for Kolhapuri cuisine, especially its spicy Misal and Rassa.</li>
+                <li>The Panhala Fort offers beautiful views and a peek into the past.</li>
+                <li>Home to the historic Rankala Lake and New Palace.</li>
+            </ul>
+        </div>
+        
+        <div class="city" id="satara">
+            <h3>Satara</h3>
+            <p>Satara is a city of historical significance, surrounded by scenic natural beauty, and is home to UNESCO-listed sites and ancient forts.</p>
+            <ul class="points-list">
+                <li>Home to the UNESCO World Heritage site Kaas Plateau.</li>
+                <li>Known for historical forts like Ajinkyatara and Sajjangad.</li>
+                <li>Satara is surrounded by scenic beauty like waterfalls and valleys.</li>
+                <li>The famous Thoseghar Waterfalls are a popular tourist attraction.</li>
+                <li>Rich cultural heritage with annual festivals like the Satara Folk Festival.</li>
+            </ul>
+        </div>
+        
+        <div class="city" id="ratnagiri">
+            <h3>Ratnagiri</h3>
+            <p>Ratnagiri is a beautiful coastal city, known for its stunning beaches, historic forts, and the famous Alphonso mangoes.</p>
+            <ul class="points-list">
+                <li>Known for pristine beaches like Ganpatipule and Mandavi.</li>
+                <li>Ratnadurg Fort offers panoramic views of the Arabian Sea.</li>
+                <li>The Bhagwati Temple and its scenic location.</li>
+                <li>Birthplace of Lokmanya Tilak, a prominent freedom fighter.</li>
+                <li>Renowned for Alphonso mangoes, which are exported globally.</li>
+            </ul>
+        </div>
+    </section>
+
+    
+</body>
+</html>
