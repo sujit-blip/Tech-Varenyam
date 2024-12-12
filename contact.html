@@ -1,97 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact Us - Maharashtra Tourism</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a8dadc; /* Unique teal background */
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            height: 100vh;
+            animation: zoomIn 2s ease-in-out;
         }
 
+       
         .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
+            text-align: center;
+            background: linear-gradient(135deg, #ff7eb3, #f4a261, #76c7c0);
+            border: 1px solid #e76f51;
+            border-radius: 8px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+
+        h1, h2, h3, p {
+            margin: 10px 0;
         }
 
         h1 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            color: #6c757d;
+            font-size: 28px;
         }
 
-        .form-group {
-            margin-bottom: 25px;
+        h2 {
+            color: #495057;
+            font-size: 24px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #34495e;
-            font-weight: 500;
+        h3 {
+            color: #adb5bd;
+            font-size: 20px;
         }
 
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
+        strong {
+            color: #dc3545;
         }
 
-        input:focus, textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.1);
+        .name {
+            color: #007bff;
         }
 
-        textarea {
-            height: 150px;
-            resize: vertical;
+        .phone {
+            color: #28a745;
         }
 
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
             }
-            
-            h1 {
-                font-size: 2em;
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
             }
         }
     </style>
@@ -99,24 +89,20 @@
 <body>
     <div class="container">
         <h1>Contact Us</h1>
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            
-            <button type="submit">Send Message</button>
-        </form>
+        <h2>Maharashtra Tourism</h2>
+        <h3>Contact Information</h3>
+
+        <h1><strong class="name">Name: Sahil Dhanawade</strong></h1>
+        <h2><strong class="phone">Phone Number:</strong> 8007085865</h2>
+      <p><strong>Email:</strong> sahil.dhanawade22@iccs.ac.in</p></br>
+
+        <h1><strong class="name">Name: Sujit Sawant</strong></h1>
+        <h2><strong class="phone">Phone Number:</strong> 9850684018</h2>
+  <p><strong>Email:</strong> sujit.sawant22@gmail.com</p></br>
+
+        <h1><strong class="name">Name: Anil Gawade</strong></h1>
+        <h2><strong class="phone">Phone Number:</strong> 9322520422</h2>
+        <p><strong>Email:</strong> anilgawade7738@gmail.com</p>
     </div>
 </body>
 </html>
